@@ -9,6 +9,7 @@ import Forgot from './components/main/forgotpass';
 import Forget from './components/main/forget'
 import Auth from './components/hoc/auth'
 import Logout from "./components/main/Logout.js";
+import Maps from './components/main/maps';
 
 
 const Routes = () => {
@@ -28,6 +29,7 @@ const Routes = () => {
             <Route exact component={Auth(Forgot,null)} path="/resetpass"/>
             
             <Route exact component={Auth(Forget,null)} path="/forget"/>
+            <Route exact component={Auth(Maps,null)} path="/maps"/>
             
             <Route component={Error} /> 
 

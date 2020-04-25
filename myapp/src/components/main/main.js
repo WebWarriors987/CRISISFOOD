@@ -32,7 +32,7 @@ class Main extends Component {
                   
                   !this.props.user.userData.isAuth?
                  
-                   <Link  id="contact-submit" style={{fontFamily:"Times new roman",fontSize:"15px"}} to="/login">SignUp/SignIn</Link>
+                   <Link  id="contact-submit" className="home_signin" to="/login">SignUp/SignIn</Link>
                   
                   
                   :
