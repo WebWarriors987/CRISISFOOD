@@ -7,7 +7,7 @@ import PlacesAutocomplete, {
   } from "react-places-autocomplete";
   
 
-export class Maps extends Component {
+export class Location extends Component {
     state={
         address:"",
         coordinates:{
@@ -49,7 +49,7 @@ export class Maps extends Component {
           }} google={this.props.google} zoom={14}>
  
                     <Marker onClick={this.onMarkerClick}
-                            name={'Current Maps'} />
+                            name={'Current location'} />
 
                     {/* <InfoWindow onClose={this.onInfoWindowClose}>
                         <div>
@@ -61,7 +61,7 @@ export class Maps extends Component {
                     </Col>
                     <Col>
                     <Row>
-                        Hey Give your location?
+                        What is the location for service?
                         <PlacesAutocomplete
                             value={this.state.address}
                             onChange={this.setAddress}
@@ -108,5 +108,5 @@ export class Maps extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyBK9PAVf-ndRSKWHsE8gwFh9RO5jcO_Vi4"
-  })(Maps)
+    apiKey: "AIzaSyDW8A7lBPoXOo-h07Q0pFuPanNmcznAd5Y"
+  })(Location)
