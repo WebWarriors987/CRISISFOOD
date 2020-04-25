@@ -4,7 +4,6 @@ import FormFields from '../utils/formfields';
 import {update,validform, generatedata} from '../utils/formtions'
 import {connect} from 'react-redux'
 import {loginuser} from '../actions/memberactions'
-import hexa from '../../images/logo.png'
 
 class Login extends Component {
     state={
@@ -116,7 +115,7 @@ resetpassword=(event)=>{
                 <label style={{color:'red',fontSize:"20px"}}>{this.state.show}</label>:null
                 }
                     <div className="reg_row_img">
-                        <img className="reg_img" src={hexa} alt="EduStream"/>
+                        <img className="reg_img" alt="EduStream"/>
 
                     </div>
                     <div className="reg_row">

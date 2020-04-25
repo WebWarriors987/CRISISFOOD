@@ -7,7 +7,7 @@ import PlacesAutocomplete, {
   } from "react-places-autocomplete";
   
 
-export class Location extends Component {
+export class Maps extends Component {
     state={
         address:"",
         coordinates:{
@@ -115,4 +115,4 @@ export class Location extends Component {
 
 export default GoogleApiWrapper({
     apiKey: "AIzaSyDW8A7lBPoXOo-h07Q0pFuPanNmcznAd5Y"
-  })(Location)
+  })(Maps)

@@ -15,29 +15,24 @@ class Main extends Component {
         var height="560px";
         return (
           <div>
-              <Container fluid >
+              <Container style={{marginTop:"20px"}}>
             <Row >
     
               <Col className="p-0"  style={{textAlign:"center"}}>
-                <Jumbotron fluid className="home_head_body">
-                <h2 className="home_head">Do Your Deed During This Time</h2>
-                <span className="home_sub">Find nearest NGOs serving the needy and donate funds</span>
+                <h1 className="home_head">Do Your Deeds </h1>
+                <span className="home_sub">Never Stop learning, even at home</span>
 
-                </Jumbotron>
-                
                 <Row style={{marginTop:"50px"}}>
                   <Col  xs={12} xsOffset={6}>
                   {this.props.user.userData?
                   
                   !this.props.user.userData.isAuth?
                  
-                   <Link  id="contact-submit" className="home_signin" to="/login">SignUp/SignIn</Link>
-                  
-                  
+                   <Link  className="contact-submit"  to="/login">SignUp/SignIn</Link>
                   :
                   null
                  :null
-  }
+            }
                   </Col>
                   
                 </Row>
@@ -47,7 +42,6 @@ class Main extends Component {
               
             </Row>
 
-          
             <Row xs={1} md={1} lg={3} style={{marginTop:"100px"}}>
 
               
@@ -109,32 +103,14 @@ class Main extends Component {
             </Row>
             <Row xs={2} style={{backgroundColor:"#808080", marginTop:"30px",textAlign:"center"}}>
               <Col xs={6}>
-                
                   
                   <h2 className="team_style">Saumyajeet Mukherjee</h2>
-                  
-                  
-                  <img src={aut1} className="author"/>
-                  
-
-                
-                
               
               </Col>
               <Col xs={6} >
-              
-                  
-                  
-                  <img src={aut2} className="author"/>
-                  
                   
                   <h2 className="team_style">Sayanta Bhattacharjee</h2>
-                  
-
-                
-                
-                
-
+              
               </Col>
             </Row>
           

@@ -4,8 +4,10 @@ import FormFields from '../utils/formfields';
 import {update,validform, generatedata} from '../utils/formtions'
 import {connect} from 'react-redux'
 import {registeruser} from '../actions/memberactions'
-import hexa from '../../images/logo.png'
-import Pic from '../utils/pic';
+import PlacesAutoComplete,{
+    getcodeByAddress,
+    getLatLng
+} from "react-places-autocomplete"
 
 class Register extends Component {
     state={
@@ -177,7 +179,7 @@ onrchange=(e)=>{
 
                 <div className="reg_row_img">
                         <div className="reg_col">
-                        <img className="reg_img" src={hexa} alt="EduStream"/>
+                        <img className="reg_img"  alt="EduStream"/>
                         </div>
                          
                 </div>
@@ -200,11 +202,11 @@ onrchange=(e)=>{
                 </div>
                 <div className="reg_row ">
                 <div className="reg_col">
-                <FormFields
+                            <FormFields
                             formdata={this.state.formdata.email}
                             id={'email'}
                             change={(event)=>{this.updateform(event)}}
-                        />
+                           />
                 </div>
                         
                 </div>

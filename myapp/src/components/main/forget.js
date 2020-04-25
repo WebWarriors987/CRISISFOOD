@@ -3,7 +3,6 @@ import FormFields from '../utils/formfields';
 import {update,validform, generatedata} from '../utils/formtions'
 import {connect} from 'react-redux'
 import {forget} from '../actions/memberactions'
-import hexa from '../../images/logo.png'
 
 class Forget extends Component {
     state={
@@ -72,7 +71,7 @@ if(isformvalid){
 
                     <div className="reg_row_img">
                         <div className="reg_col">
-                        <img className="reg_img" src={hexa} alt="EduStream"/>
+                        <img className="reg_img"  alt="EduStream"/>
                         </div>
                          
                 </div>  
