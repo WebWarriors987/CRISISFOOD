@@ -41,6 +41,10 @@ const memberSchema=mongoose.Schema({
     },
     resetpasslink:{
         type:String
+    },
+    address:{
+        type:Object,
+        required:true
     }
    
 },{timestamps:true})

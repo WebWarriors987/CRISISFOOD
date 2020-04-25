@@ -4,16 +4,23 @@ import FormFields from '../utils/formfields';
 import {update,validform, generatedata} from '../utils/formtions'
 import {connect} from 'react-redux'
 import {registeruser} from '../actions/memberactions'
-import PlacesAutoComplete,{
-    getcodeByAddress,
+import { Button, Container, Col, Row } from 'react-bootstrap';
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import PlacesAutocomplete, {
+    geocodeByAddress,
     getLatLng
-} from "react-places-autocomplete"
-
+  } from "react-places-autocomplete";
+  
 class Register extends Component {
     state={
         loading:false,
         formSuccess:false,
         formError:false,
+        address:"",
+        coordinates:{
+            lat:null,
+            lng:null
+        },
         formdata:{
         name: {
             element:'input',
@@ -127,7 +134,7 @@ console.log(data)
 console.log(isformvalid)
 if(isformvalid){
     console.log("lll")
-    this.props.dispatch(registeruser(data)).then((response)=>{
+    this.props.dispatch(registeruser(data,this.state.coordinates)).then((response)=>{
         
         if(response.payload.success){
          console.log('hurray')
@@ -148,6 +155,22 @@ if(isformvalid){
             }
         }
     )}
+}
+setAddress=(val)=>{
+    this.setState({address:val});
+}
+setCoordinates=(coord)=>{
+    this.setState({coordinates:coord})
+}
+
+handleSelect = async value => {
+    const results = await geocodeByAddress(value);
+    const latLng = await getLatLng(results[0]);
+    this.setAddress(value);
+    this.setCoordinates(latLng);
+  };
+onMarkerClick=(e)=>{
+    console.log(e)
 }
 
 onrchange=(e)=>{
@@ -217,10 +240,46 @@ onrchange=(e)=>{
                         id={'password'}
                         change={(event)=>{this.updateform(event)}}
                     />
-                </div>
-                    
-                         
+                </div>         
                 </div>   
+
+                <Col>
+                    <Row>
+                        What is the location for service?
+                        <PlacesAutocomplete
+                            value={this.state.address}
+                            onChange={this.setAddress}
+                            onSelect={this.handleSelect}
+                        >
+                            {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                            <div>
+                                <p>Latitude: {this.state.coordinates.lat}</p>
+                                <p>Longitude: {this.state.coordinates.lng}</p>
+
+                                <input {...getInputProps({ placeholder: "Type address" })} />
+
+                                <div>
+                                {loading ? <div>...loading</div> : null}
+
+                                {suggestions.map(suggestion => {
+                                    const style = {
+                                    backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                                    };
+
+                                    return (
+                                    <div {...getSuggestionItemProps(suggestion, { style })}>
+                                        {suggestion.description}
+                                    </div>
+                                    );
+                                })}
+                                </div>
+                            </div>
+                            )}
+                        </PlacesAutocomplete>
+                    </Row>
+                    
+                    </Col>
+                   
                 <div className="reg_row">
                 <div className="reg_col">
                 <FormFields
@@ -339,5 +398,6 @@ onrchange=(e)=>{
     }
 }
 
-export default connect()(Register);
-
+export default GoogleApiWrapper({
+    apiKey: ""
+  })(connect()(Register));

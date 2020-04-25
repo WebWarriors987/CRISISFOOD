@@ -17,7 +17,6 @@ export class Location extends Component {
     }
     setAddress=(val)=>{
         this.setState({address:val});
-
     }
     setCoordinates=(coord)=>{
         this.setState({coordinates:coord})
@@ -108,5 +107,5 @@ export class Location extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyDW8A7lBPoXOo-h07Q0pFuPanNmcznAd5Y"
+    apiKey: ""
   })(Location)
