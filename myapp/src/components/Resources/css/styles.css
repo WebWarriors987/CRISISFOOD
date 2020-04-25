@@ -20,5 +20,5 @@
 .navbar:hover{
   opacity:1 !important;
   background-color: coral !important;
-  border-radius: 5px;
+  border-radius: 5px !important;
 }
