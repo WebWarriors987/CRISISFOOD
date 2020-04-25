@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import flow from "../../images/flow.png"; 
 import aut1 from "../../images/aut1.png";
 import aut2 from "../../images/aut2.png";
 import { Container, Row, Col,Button, Image, Jumbotron } from 'react-bootstrap';
@@ -94,12 +93,12 @@ class Main extends Component {
             <Row xs={1} style={{marginTop:"100px",textAlign:"center"}}>
                 <p className="home_topic">How our WebSite Works:</p>
             </Row>
-            <Row xs={1} style={{marginTop:"50px"}}>
+            {/* <Row xs={1} style={{marginTop:"50px"}}>
             
               
                 <img className="img_flow" src={flow} />
               
-            </Row>
+            </Row> */}
             
           </Container>
 

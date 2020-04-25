@@ -37,15 +37,13 @@ export class Location extends Component {
             width: '90%',
             height: '100%'
           }
-        return (
-            <Fragment>
-                <Container>
-                    <Row style={{height:"300px"}}>
-                    <Col style={{borderRight:"1px solid black"}} >
-                    <Map style={style}
+        let  map;
+        if(this.state.coordinates.lat){
+            map=(
+                <Map style={style}
           initialCenter={{
-            lat: 22.445237,
-            lng:  88.416412
+            lat: this.state.coordinates.lat,
+            lng:  this.state.coordinates.lng
           }} google={this.props.google} zoom={14}>
  
                     <Marker onClick={this.onMarkerClick}
@@ -57,7 +55,15 @@ export class Location extends Component {
                         </div>
                     </InfoWindow> */}
                     </Map>
-
+            )
+        }
+        return (
+            <Fragment>
+                <Container>
+                    <Row style={{height:"300px"}}>
+                    <Col style={{borderRight:"1px solid black"}} >
+                    
+                        {map}
                     </Col>
                     <Col>
                     <Row>
@@ -108,5 +114,5 @@ export class Location extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyBK9PAVf-ndRSKWHsE8gwFh9RO5jcO_Vi4"
+    apiKey: "AIzaSyDW8A7lBPoXOo-h07Q0pFuPanNmcznAd5Y"
   })(Location)
