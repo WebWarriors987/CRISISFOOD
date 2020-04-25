@@ -1,0 +1,14 @@
+.home_head{
+    font-size: 60px;
+    font-weight: 400;
+    margin: 50px;
+    padding:20px;
+
+}
+.home_sub{
+    font-size: 25px;
+    font-weight: 300;
+}
+.home_head_body{
+    height:400px;
+}
