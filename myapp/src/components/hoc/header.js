@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import {log} from "../actions/memberactions"
 import food from "../../images/food.jpg"
+import "./header.css"
 
 class Header extends Component {  
    logoutuser=()=>{
@@ -18,7 +19,7 @@ class Header extends Component {
       console.log(this.props.user.userData)
         return (
                
-<nav className="navbar sticky-top navbar-expand-md navbar-light" style={{backgroundColor:'#F0F8FF'}}>
+<nav className="navbar sticky-top navbar-expand-md navbar-light" >
   <a className="navbar-brand" href="#">
     Bootstrap
   </a>
