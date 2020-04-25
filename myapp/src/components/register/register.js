@@ -331,64 +331,7 @@ onrchange=(e)=>{
                     </fieldset>
                 </div>
                     
-                    
                 </div>
-            
-                {/* <div><Pic image={hexa} text="EduStream"/></div> */}
-
-
-
-                {/* <div className="block row">
-               <FormFields
-                  formdata={this.state.formdata.name}
-                  id={'name'}
-                  change={(event)=>{this.updateform(event)}}
-                />
-                </div><br></br>
-               <div className="block row">
-               <FormFields
-                  formdata={this.state.formdata.lastname}
-                  id={'lastname'}
-                  change={(event)=>{this.updateform(event)}}
-                />
-                </div><br></br>
-               <div className="block row">
-               <FormFields
-                  formdata={this.state.formdata.email}
-                  id={'email'}
-                  change={(event)=>{this.updateform(event)}}
-                />
-                </div><br></br>
-                
-                <div className="block row">
-                  <FormFields
-                  formdata={this.state.formdata.password}
-                  id={'password'}
-                  change={(event)=>{this.updateform(event)}}
-                />
-                </div><br></br>
-
-                <div className="block row">
-                <FormFields
-                  formdata={this.state.formdata.confirmpassword}
-                  id={'confirmpassword'}
-                  change={(event)=>{this.updateform(event)}}
-                />
-                </div>
-
-                <br></br>
-                */}
-                 
-{/* 
-                <br></br>
-                <br></br>
-                        <center>  
-              <fieldset>
-                 <button id="contact-submit" style={{padding:"10px"}} onClick={(event)=> this.submitform(event)}>
-                     Create an account
-                </button>
-                </fieldset>
-                </center> */}
                 </form>
                 </div> 
 
@@ -399,5 +342,5 @@ onrchange=(e)=>{
 }
 
 export default GoogleApiWrapper({
-    apiKey: ""
+    apiKey: "AIzaSyDW8A7lBPoXOo-h07Q0pFuPanNmcznAd5Y"
   })(connect()(Register));
