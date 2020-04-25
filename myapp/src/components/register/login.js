@@ -3,8 +3,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import FormFields from '../utils/formfields';
 import {update,validform, generatedata} from '../utils/formtions'
 import {connect} from 'react-redux'
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import {loginuser} from '../actions/memberactions'
 import hexa from '../../images/logo.png'
 
