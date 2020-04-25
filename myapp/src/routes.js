@@ -7,10 +7,9 @@ import Layout from './components/hoc';
 import Error from './components/main/404'
 import Forgot from './components/main/forgotpass';
 import Forget from './components/main/forget'
-import Addskill from './components/main/addskills'
-import Chat from "./components/Layout"
 import Auth from './components/hoc/auth'
 import Logout from "./components/main/Logout.js";
+import Maps from './components/main/maps';
 
 
 const Routes = () => {
@@ -30,6 +29,7 @@ const Routes = () => {
             <Route exact component={Auth(Forgot,null)} path="/resetpass"/>
             
             <Route exact component={Auth(Forget,null)} path="/forget"/>
+            <Route exact component={Auth(Maps,null)} path="/maps"/>
             
             <Route component={Error} /> 
 

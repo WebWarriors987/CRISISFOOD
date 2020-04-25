@@ -4,7 +4,8 @@ import {Link} from 'react-router-dom'
 import flow from "../../images/flow.png"; 
 import aut1 from "../../images/aut1.png";
 import aut2 from "../../images/aut2.png";
-import { Container, Row, Col,Button, Image } from 'react-bootstrap';
+import { Container, Row, Col,Button, Image, Jumbotron } from 'react-bootstrap';
+import "./main.css";
 class Main extends Component {
 
     state={
@@ -15,20 +16,23 @@ class Main extends Component {
         var height="560px";
         return (
           <div>
-              <Container style={{marginTop:"20px"}}>
+              <Container fluid >
             <Row >
     
               <Col className="p-0"  style={{textAlign:"center"}}>
-                <h1 className="home_head">We Bring The School Experience to Home</h1>
-                <span className="home_sub">Never Stop learning, even at home</span>
+                <Jumbotron fluid className="home_head_body">
+                <h2 className="home_head">Do Your Deed During This Time</h2>
+                <span className="home_sub">Find nearest NGOs serving the needy and donate funds</span>
 
+                </Jumbotron>
+                
                 <Row style={{marginTop:"50px"}}>
                   <Col  xs={12} xsOffset={6}>
                   {this.props.user.userData?
                   
                   !this.props.user.userData.isAuth?
                  
-                   <Link  id="contact-submit" style={{fontFamily:"Times new roman",fontSize:"15px"}} to="/login">SignUp/SignIn</Link>
+                   <Link  id="contact-submit" className="home_signin" to="/login">SignUp/SignIn</Link>
                   
                   
                   :
