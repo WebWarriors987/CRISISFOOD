@@ -104,8 +104,8 @@ var transporter = nodemailer.createTransport({
         const emaildata={
             to:req.body.email,
             subject:'Password reset',
-            text:"Please follow the informations to reset your password:http://chessnitdgp.herokuapp.com/resetpass?token=${token}",
-            html:`<p>Please click the following link</p><p>http://chessnitdgp.herokuapp.com/resetpass?token=${token}</p>`
+            text:"Please follow the informations to reset your password:http://che.herokuapp.com/resetpass?token=${token}",
+            html:`<p>Please click the following link</p><p>http://che.herokuapp.com/resetpass?token=${token}</p>`
         }
         Member.update({email:req.body.email},{$set:{resetpasslink:token}},function(err,member){
            if(err) return res.send(err)

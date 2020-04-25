@@ -12,7 +12,13 @@ import {
 import { MEMBER_SERVER } from '../utils/misc';
 
 
-export function registeruser(data){
+export function registeruser(datar,add){
+    const data={
+        ...datar,
+        address:add
+            
+    }
+    
     console.log('hhhh')
     const request = axios.post(`${MEMBER_SERVER}/register`,data)
         .then(response => response.data);

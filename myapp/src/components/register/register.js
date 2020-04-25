@@ -4,16 +4,23 @@ import FormFields from '../utils/formfields';
 import {update,validform, generatedata} from '../utils/formtions'
 import {connect} from 'react-redux'
 import {registeruser} from '../actions/memberactions'
-import PlacesAutoComplete,{
-    getcodeByAddress,
+import { Button, Container, Col, Row } from 'react-bootstrap';
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import PlacesAutocomplete, {
+    geocodeByAddress,
     getLatLng
-} from "react-places-autocomplete"
-
+  } from "react-places-autocomplete";
+  
 class Register extends Component {
     state={
         loading:false,
         formSuccess:false,
         formError:false,
+        address:"",
+        coordinates:{
+            lat:null,
+            lng:null
+        },
         formdata:{
         name: {
             element:'input',
@@ -21,6 +28,21 @@ class Register extends Component {
             config:{
                 name:'name',
                 placeholder:'Enter your name here',
+                type:'text'
+            },
+            validation:{
+                required:true
+            },
+            valid:false,
+            validationMessage:'',
+            label:true
+        },
+        ngo_name: {
+            element:'input',
+            value:'',
+            config:{
+                name:'NGO_name',
+                placeholder:'Enter your NGO name here',
                 type:'text'
             },
             validation:{
@@ -127,7 +149,7 @@ console.log(data)
 console.log(isformvalid)
 if(isformvalid){
     console.log("lll")
-    this.props.dispatch(registeruser(data)).then((response)=>{
+    this.props.dispatch(registeruser(data,this.state.coordinates)).then((response)=>{
         
         if(response.payload.success){
          console.log('hurray')
@@ -149,6 +171,22 @@ if(isformvalid){
         }
     )}
 }
+setAddress=(val)=>{
+    this.setState({address:val});
+}
+setCoordinates=(coord)=>{
+    this.setState({coordinates:coord})
+}
+
+handleSelect = async value => {
+    const results = await geocodeByAddress(value);
+    const latLng = await getLatLng(results[0]);
+    this.setAddress(value);
+    this.setCoordinates(latLng);
+  };
+onMarkerClick=(e)=>{
+    console.log(e)
+}
 
 onrchange=(e)=>{
     console.log(this.state.formdata.role.value)
@@ -157,16 +195,27 @@ onrchange=(e)=>{
     newformdata['role'].value=e.target.value
     this.setState({
         formdata:newformdata,
-        value:e.target.value
+        value:parseInt(e.target.value)
     })
     
-    this.setState({
-      value:1
-    })
-    console.log(this.state)
+    
 }
-    render() {
-        return (
+render() {
+    console.log("Hieeeeeeee",this.state.value)
+    let ngoDetails;
+    if(this.state.value==1){
+        ngoDetails=(
+        <div className="reg_row ">
+        <div className="reg_col">
+                    <FormFields
+                    formdata={this.state.formdata.ngo_name}
+                    id={'name'}
+                    change={(event)=>{this.updateform(event)}}
+                   />
+        </div>
+        </div>)
+    }
+    return (
             this.state.loading?
         <center> <CircularProgress thickness={5} size={15} style={{color:'grey',marginBottom:"500px"}} />  </center>
             :
@@ -217,10 +266,48 @@ onrchange=(e)=>{
                         id={'password'}
                         change={(event)=>{this.updateform(event)}}
                     />
-                </div>
-                    
-                         
+                </div>         
                 </div>   
+
+                
+                    <Row>
+                       <Col>
+
+                       <PlacesAutocomplete
+                            value={this.state.address}
+                            onChange={this.setAddress}
+                            onSelect={this.handleSelect}
+                        >
+                            {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                            <div>
+                                
+
+                                <input {...getInputProps({ placeholder: "Type address" })} />
+
+                                <div>
+                                {loading ? <div>...loading</div> : null}
+
+                                {suggestions.map(suggestion => {
+                                    const style = {
+                                    backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                                    };
+
+                                    return (
+                                    <div {...getSuggestionItemProps(suggestion, { style })}>
+                                        {suggestion.description}
+                                    </div>
+                                    );
+                                })}
+                                </div>
+                            </div>
+                            )}
+                        </PlacesAutocomplete>
+                       </Col>
+                        
+                    </Row>
+                    
+                 
+                   
                 <div className="reg_row">
                 <div className="reg_col">
                 <FormFields
@@ -231,6 +318,8 @@ onrchange=(e)=>{
                 </div>
                     
                 </div>
+                {ngoDetails}
+                
 
                 <div className="row">
                    <label style={{fontFamily:'algerian'}}> ARE YOU AN ADMIN ? </label> 
@@ -242,6 +331,7 @@ onrchange=(e)=>{
                 checked={this.state.value === 1}
                 onChange={(e)=>this.onrchange(e)}/>
                 </div>
+
                 <div className="col-lg-6 col-sm-6 col-md-6 col-xs-6">
                 <label>YES</label>
                 </div>
@@ -261,7 +351,7 @@ onrchange=(e)=>{
                 </div>
                 </div>
                 </div>
- 
+                
                 <div className="reg_row_img">
                 <div className="reg_col">
                 <fieldset>
@@ -339,5 +429,6 @@ onrchange=(e)=>{
     }
 }
 
-export default connect()(Register);
-
+export default GoogleApiWrapper({
+    apiKey: "AIzaSyDW8A7lBPoXOo-h07Q0pFuPanNmcznAd5Y"
+  })(connect()(Register));
