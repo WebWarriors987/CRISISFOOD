@@ -5,7 +5,6 @@ import {update,validform, generatedata} from '../utils/formtions'
 import {connect} from 'react-redux'
 import {forgetpass} from '../actions/memberactions'
 import queryString from 'query-string';
-import hexa from '../../images/logo.png'
 
 
 
@@ -97,7 +96,7 @@ if(isformvalid){
 
                 <div className="reg_row_img">
                         <div className="reg_col">
-                        <img className="reg_img" src={hexa} alt="EduStream"/>
+                        <img className="reg_img"  alt="EduStream"/>
                         </div>
                          
                 </div>

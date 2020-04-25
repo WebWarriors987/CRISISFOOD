@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import flow from "../../images/flow.png"; 
-import aut1 from "../../images/aut1.png";
-import aut2 from "../../images/aut2.png";
-import { Container, Row, Col,Button, Image, Jumbotron } from 'react-bootstrap';
-import "./main.css";
+import { Container, Row, Col,Button, Image } from 'react-bootstrap';
 class Main extends Component {
 
     state={
@@ -16,29 +12,26 @@ class Main extends Component {
         var height="560px";
         return (
           <div>
-              <Container fluid >
+              <Container style={{marginTop:"20px"}}>
             <Row >
     
               <Col className="p-0"  style={{textAlign:"center"}}>
-                <Jumbotron fluid className="home_head_body">
-                <h2 className="home_head">Do Your Deed During This Time</h2>
-                <span className="home_sub">Find nearest NGOs serving the needy and donate funds</span>
+                <h1 className="home_head">We Bring The School Experience to Home</h1>
+                <span className="home_sub">Never Stop learning, even at home</span>
 
-                </Jumbotron>
-                
                 <Row style={{marginTop:"50px"}}>
                   <Col  xs={12} xsOffset={6}>
                   {this.props.user.userData?
                   
                   !this.props.user.userData.isAuth?
                  
-                   <Link  id="contact-submit" className="home_signin" to="/login">SignUp/SignIn</Link>
+                   <Link  id="contact-submit" style={{fontFamily:"Times new roman",fontSize:"15px"}} to="/login">SignUp/SignIn</Link>
                   
                   
                   :
                   null
                  :null
-  }
+            }
                   </Col>
                   
                 </Row>
@@ -48,7 +41,6 @@ class Main extends Component {
               
             </Row>
 
-          
             <Row xs={1} md={1} lg={3} style={{marginTop:"100px"}}>
 
               
@@ -94,11 +86,8 @@ class Main extends Component {
             <Row xs={1} style={{marginTop:"100px",textAlign:"center"}}>
                 <p className="home_topic">How our WebSite Works:</p>
             </Row>
-            <Row xs={1} style={{marginTop:"50px"}}>
             
-              
-                <img className="img_flow" src={flow} />
-              
+            <Row xs={1} style={{marginTop:"50px"}}>
             </Row>
             
           </Container>
@@ -110,32 +99,14 @@ class Main extends Component {
             </Row>
             <Row xs={2} style={{backgroundColor:"#808080", marginTop:"30px",textAlign:"center"}}>
               <Col xs={6}>
-                
                   
                   <h2 className="team_style">Saumyajeet Mukherjee</h2>
-                  
-                  
-                  <img src={aut1} className="author"/>
-                  
-
-                
-                
               
               </Col>
               <Col xs={6} >
-              
-                  
-                  
-                  <img src={aut2} className="author"/>
-                  
                   
                   <h2 className="team_style">Sayanta Bhattacharjee</h2>
-                  
-
-                
-                
-                
-
+              
               </Col>
             </Row>
           
