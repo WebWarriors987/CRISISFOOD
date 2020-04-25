@@ -7,7 +7,6 @@ import Layout from './components/hoc';
 import Error from './components/main/404'
 import Forgot from './components/main/forgotpass';
 import Forget from './components/main/forget'
-import Chat from "./components/Layout"
 import Auth from './components/hoc/auth'
 import Logout from "./components/main/Logout.js";
 
