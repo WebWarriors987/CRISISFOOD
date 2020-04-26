@@ -225,7 +225,7 @@ render() {
 
                 <div className="reg_row_img">
                         <div className="reg_col">
-                        <p>NGO_Donate</p>
+                        <p style={{fontSize:"30px"}}>NGO Donate</p>
                         </div>
                          
                 </div>
@@ -268,8 +268,8 @@ render() {
 
                 
                     <Row className="reg_row">
-                       <Col className="reg_col">
-                        <p style={{fontSize:"20px"}}>Enter Your Address</p>
+                       
+                        <span className="label_inputs" style={{fontSize:"20px",margin:"5px 20px 5px 0",paddingLeft:"10px"}} >Enter Your Address</span>
                        <PlacesAutocomplete
                             value={this.state.address}
                             onChange={this.setAddress}
@@ -299,7 +299,7 @@ render() {
                             </div>
                             )}
                         </PlacesAutocomplete>
-                       </Col>
+                      
                         
                     </Row>
                     

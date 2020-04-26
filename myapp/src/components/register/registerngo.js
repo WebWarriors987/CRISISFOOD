@@ -187,7 +187,7 @@ onMarkerClick=(e)=>{
 
                 <div className="reg_row_img">
                         <div className="reg_col">
-                        <p>NGO_Donate</p>
+                        <p style={{fontSize:"30px"}}>NGO Donate</p>
                         </div>
                          
                 </div>

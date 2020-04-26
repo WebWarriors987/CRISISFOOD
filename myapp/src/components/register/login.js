@@ -118,7 +118,7 @@ resetpassword=(event)=>{
                 <label style={{color:'red',fontSize:"20px"}}>{this.state.show}</label>:null
                 }
                     <div className="reg_row_img">
-                        <p>NGO_Donate</p>
+                        <p style={{fontSize:"30px"}}>NGO Donate</p>
 
                     </div>
                     <div className="reg_row">
