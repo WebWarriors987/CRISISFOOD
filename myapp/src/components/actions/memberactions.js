@@ -18,8 +18,9 @@ export function registeruser(datar,add){
         address:add
             
     }
-    
-    console.log('hhhh')
+
+
+    console.log(data)
     const request = axios.post(`${MEMBER_SERVER}/register`,data)
         .then(response => response.data);
     console.log(request)
