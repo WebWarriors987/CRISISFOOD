@@ -4,7 +4,7 @@ import FormFields from '../utils/formfields';
 import {update,validform, generatedata} from '../utils/formtions'
 import {connect} from 'react-redux'
 import {registeruser} from '../actions/memberactions'
-import { Button, Container, Col, Row } from 'react-bootstrap';
+import { Button, Container, Col, Row, Form } from 'react-bootstrap';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import './register.css'
 import PlacesAutocomplete, {
@@ -220,6 +220,7 @@ render() {
             this.state.loading?
         <center> <CircularProgress thickness={5} size={15} style={{color:'grey',marginBottom:"500px"}} />  </center>
             :
+            
             <div className="containers">
                 
                 <form id="contact" onSubmit={(event)=>{
