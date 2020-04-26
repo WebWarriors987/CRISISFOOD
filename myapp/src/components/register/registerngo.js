@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import FormFields from '../utils/formfields';
 import {update,validform, generatedata} from '../utils/formtions'
 import {connect} from 'react-redux'
-import {registeruser} from '../actions/memberactions'
+import {registerngo} from '../actions/memberactions'
 import { Button, Container, Col, Row } from 'react-bootstrap';
 import './register.css'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
@@ -98,54 +98,7 @@ class RegisterNgo extends Component {
             valid:false,
             validationMessage:'',
             label:true
-        },
-        password: {
-            element:'input',
-            value:'',
-            config:{
-                name:'password',
-                placeholder:'Enter password here',
-                type:'password'
-            },
-            validation:{
-                required:true
-            },
-            valid:false,
-            validationMessage:'',
-            label:true
-        },
-        confirmpassword: {
-            element:'input',
-            value:'',
-            config:{
-                name:'Confirm Password',
-                placeholder:'ReEnter your Password here',
-                type:'password'
-            },
-            validation:{
-                required:true,
-                confirm: 'password'
-            },
-            valid:false,
-            validationMessage:'',
-            label:true
-        },
-        role: {
-            element:'radio',
-            value:0,
-            config:{
-                name:'admin',
-                placeholder:'Admin here',
-                type:'admin'
-            },
-            validation:{
-                required:false
-            },
-            valid:true,
-            validationMessage:'',
-            label:false
-        },
-        
+        },        
     },
     value:0
 }
@@ -166,7 +119,7 @@ console.log(data)
 console.log(isformvalid)
 if(isformvalid){
     console.log("lll")
-    this.props.dispatch(registeruser(data,this.state.coordinates)).then((response)=>{
+    this.props.dispatch(registergo(data,this.state.coordinates)).then((response)=>{
         
         if(response.payload.success){
          console.log('hurray')
@@ -205,21 +158,21 @@ onMarkerClick=(e)=>{
     console.log(e)
 }
 
-onrchange=(e)=>{
-    console.log(this.state.formdata.role.value)
-    const newformdata=this.state.formdata
+// onrchange=(e)=>{
+//     console.log(this.state.formdata.role.value)
+//     const newformdata=this.state.formdata
 
-    newformdata['role'].value=e.target.value
-    this.setState({
-        formdata:newformdata,
-        value:e.target.value
-    })
+//     newformdata['role'].value=e.target.value
+//     this.setState({
+//         formdata:newformdata,
+//         value:e.target.value
+//     })
     
-    this.setState({
-      value:1
-    })
-    console.log(this.state)
-}
+//     this.setState({
+//       value:1
+//     })
+//     console.log(this.state)
+// }
     render() {
         return (
             this.state.loading?
@@ -265,7 +218,27 @@ onrchange=(e)=>{
                 </div>
                         
                 </div>
-                <div className="reg_row">
+                <div className="reg_row ">
+                <div className="reg_col">
+                            <FormFields
+                            formdata={this.state.formdata.contact}
+                            id={'email'}
+                            change={(event)=>{this.updateform(event)}}
+                           />
+                </div>
+                        
+                </div>
+                <div className="reg_row ">
+                <div className="reg_col">
+                            <FormFields
+                            formdata={this.state.formdata.additional}
+                            id={'email'}
+                            change={(event)=>{this.updateform(event)}}
+                           />
+                </div>
+                        
+                </div>
+                {/* <div className="reg_row">
                 <div className="reg_col">
                 <FormFields
                         formdata={this.state.formdata.password}
@@ -273,7 +246,7 @@ onrchange=(e)=>{
                         change={(event)=>{this.updateform(event)}}
                     />
                 </div>         
-                </div>   
+                </div>    */}
 
                 <Col>
                     <Row>
@@ -311,7 +284,7 @@ onrchange=(e)=>{
                     </Row>
                     
                     </Col>
-                   
+{/*                    
                 <div className="reg_row">
                 <div className="reg_col">
                 <FormFields
@@ -321,38 +294,8 @@ onrchange=(e)=>{
                     />
                 </div>
                     
-                </div>
+                </div> */}
 
-                <div className="row">
-                   <label style={{fontFamily:'algerian'}}> ARE YOU AN ADMIN ? </label> 
-           <div className="row">
-           <div className="col-lg-6 col-sm-6 col-md-6 col-xs-6">
-                <input
-                type="radio"
-                value="1"
-                checked={this.state.value === 1}
-                onChange={(e)=>this.onrchange(e)}/>
-                </div>
-                <div className="col-lg-6 col-sm-6 col-md-6 col-xs-6">
-                <label>YES</label>
-                </div>
-                </div>
-                
-                <div className="row">
-                <div className="col-lg-6 col-sm-6 col-md-6 col-xs-6">
-
-                <input
-                type="radio"
-                value="0"
-                checked={this.state.value === 0}
-                onChange={(e)=>this.onrchange(e)}/>
-                </div>
-                <div className="col-lg-6 col-sm-6 col-md-6 col-xs-6">
-                <label>NO</label>
-                </div>
-                </div>
-                </div>
- 
                 <div className="reg_row_img">
                 <div className="reg_col">
                 <fieldset>

@@ -2,6 +2,7 @@ import React from 'react';
 import {Switch,Route} from 'react-router-dom'
 import Main from './components/main/main';
 import Register from './components/register/register';
+import RegisterNgo from './components/register/registerngo';
 import Login from './components/register/login';
 import Layout from './components/hoc';
 import Error from './components/main/404'
@@ -21,6 +22,8 @@ const Routes = () => {
             <Route exact component={Auth(Main,null)} path="/"/>
             
             <Route exact component={Auth(Register,null)} path="/register"/>
+
+            <Route exact component={Auth(RegisterNgo,null)} path="/registerngo"/>
         
             <Route exact component={Auth(Login,null)} path="/login"/>
             

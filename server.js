@@ -76,8 +76,8 @@ var transporter = nodemailer.createTransport({
         const emaildata={
             to:req.body.email,
             subject:'REGISTRATION',
-            text:"YOU ARE REGISTERED FOR EDUSTREAM",
-            html:`<p>WELCOME,${doc.name} TO EDUSTREAM</p>`
+            text:"YOU ARE REGISTERED FOR CRISISFOOD",
+            html:`<p>WELCOME,${doc.name} TO CRISISFOOD</p>`
         }
         
      sendmail(emaildata)
@@ -90,6 +90,32 @@ var transporter = nodemailer.createTransport({
      });
 
 
+     app.post('/api/members/registerngo',(req,res)=>{
+        console.log('dsd')
+        const member = new NGO(req.body);
+        console.log(member)
+        member.save((err,doc)=>{
+           if(err) {
+               console.log(err)
+               return res.json({success:false,err});
+           }
+               console.log(doc.name) 
+   
+           const emaildata={
+               to:req.body.email,
+               subject:'REGISTRATION',
+               text:"YOU ARE REGISTERED FOR CRISISFOOD",
+               html:`<p>WELCOME,${doc.name} TO CRISISFOOD</p>`
+           }
+           
+        sendmail(emaildata)
+              
+        res.status(200).json({
+               success: true,doc
+                           })
+           
+           })
+        });
 
 
     app.post('/api/members/forgetpassword',(req,res)=>{

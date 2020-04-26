@@ -6,6 +6,7 @@ import {
     FORGET,
     PASS,
     SET_HEADER,
+    REGISTER_NGO,
     logoutuser
 } from './types';
 
@@ -30,6 +31,24 @@ export function registeruser(datar,add){
     }
 }
 
+
+export function registerngo(datar,add){
+    const data={
+        ...datar,
+        address:add
+            
+    }
+
+
+    console.log(data)
+    const request = axios.post(`${MEMBER_SERVER}/registerngo`,data)
+        .then(response => response.data);
+    console.log(request)
+    return {
+        type: REGISTER_NGO,
+        payload: request
+    }
+}
 
 
 export function forgetpass(reset,data){
