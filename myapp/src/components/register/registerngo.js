@@ -374,5 +374,5 @@ onrchange=(e)=>{
 }
 
 export default GoogleApiWrapper({
-    apiKey: ""
+    apiKey: "AIzaSyCbnWauuCBARCaUHizGP6eK3vrm9_N4jlA"
   })(connect()(RegisterNgo));

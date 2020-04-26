@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
+import {connect} from 'react-redux'
 import { Button, Container, Col, Row } from 'react-bootstrap';
 import {Map, InfoWindow, Marker,Circle, GoogleApiWrapper} from 'google-maps-react';
 import PlacesAutocomplete, {
     geocodeByAddress,
     getLatLng
   } from "react-places-autocomplete";
-import { connect } from 'react-redux';
 import { alllist } from '../actions/recordactions';
   
 
@@ -131,5 +131,5 @@ const mapDispatchToProps=dispatch=>{
 }
 
 export default GoogleApiWrapper({
-    apiKey: ""
+    apiKey: "AIzaSyCbnWauuCBARCaUHizGP6eK3vrm9_N4jlA"
   })(connect(mapStateToProps,mapDispatchToProps)(Location))
