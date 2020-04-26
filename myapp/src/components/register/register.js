@@ -373,5 +373,5 @@ render() {
 }
 
 export default GoogleApiWrapper({
-    apiKey: ""
+    apiKey: "AIzaSyDW8A7lBPoXOo-h07Q0pFuPanNmcznAd5Y"
   })(connect()(Register));
