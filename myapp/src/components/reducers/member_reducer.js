@@ -2,6 +2,7 @@ import {
     REGISTER_USER,
     LOGIN_USER,
     AUTH_USER,
+    REGISTER_NGO,
     FORGET,
     PASS,
     logoutuser,
@@ -12,6 +13,8 @@ export default function(state={},action){
     switch(action.type){ 
         case REGISTER_USER:
         return {...state, register: action.payload }
+        case REGISTER_NGO:
+            return {...state, registerngo: action.payload }
         case LOGIN_USER:
             return {...state,member:action.payload}  
             case SET_HEADER:
