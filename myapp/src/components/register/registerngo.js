@@ -119,7 +119,7 @@ console.log(data)
 console.log(isformvalid)
 if(isformvalid){
     console.log("lll")
-    this.props.dispatch(registergo(data,this.state.coordinates)).then((response)=>{
+    this.props.dispatch(registerngo(data,this.state.coordinates)).then((response)=>{
         
         if(response.payload.success){
          console.log('hurray')
