@@ -4,14 +4,35 @@ import {Link} from 'react-router-dom'
 import aut1 from "../../images/aut1.png";
 import aut2 from "../../images/aut2.png";
 import Donate from "../../images/donate.png";
+import covid from "../../images/covid.png";
 import { Container, Row, Col,Button, Image, Jumbotron } from 'react-bootstrap';
 import "./main.css";
 class Main extends Component {
 
     state={
         news:'',
+        Total:null,
+
+
     }
-    
+    componentDidMount(){
+      this.handleTotal()
+      .then(res=>{
+        console.log("Hey data",res.Total)
+        this.setState({Total:res.Total})
+      })
+    }
+    handleTotal=async ()=>{
+      try {
+        const response=await fetch(`https://api.covid19api.com/stats`)
+        const total=await response.json()
+        return total
+        
+      } catch (error) {
+        console.log(error)
+      }
+      
+    }
     render() {
         var height="560px";
         return (
@@ -45,7 +66,7 @@ class Main extends Component {
             </Row>
             </Container>
 
-            <Container>
+            <Container className="home_under">
 
             <Row>
               <Col xs={8}>
@@ -72,9 +93,56 @@ class Main extends Component {
 
                       </Container>
               
+                      <Container className="home_corona">
 
+                        <Row>
+                        <Col xs={4}>
+                            <Row >
+                              <Col >
+                                <Image className="home_desc_img_2" src={covid} alt="donate" />
+
+                              </Col>
+                            </Row>
+                          </Col>
+                          <Col xs={8}>
+                            <Container>
+                              <Row>
+                                <Col  >
+                                  The threat to <span className="corona">corona-virus</span> rises everyday,
+                                  with over <span className="corona_total">{this.state.Total && this.state.Total}</span> affected people.
+                                </Col>
+                                
+                              </Row>
+                            </Container>
+                          
+                          </Col>
+                          
+                        </Row>
+
+                                  </Container>
+                        
+            <Container className="link_maps">
+
+                <Row >
+                <Col x>
+                    <Row xs={1}>
+                      <Col xs={12}>
+                      <Link className="covid_ngo" to="/maps">Search NGOs</Link> 
+
+                      </Col>
+
+                    </Row>
+                  </Col>
+                  
+                        
+                      
+                 
+                  
+                </Row>
+
+                          </Container>
             
-      </div>
+                              </div>
           
 
 
