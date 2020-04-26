@@ -21,11 +21,7 @@ class Header extends Component {
                
 <nav className="navbar sticky-top navbar-expand-md navbar-light" >
   <a className="navbar-brand" href="#">
-<<<<<<< HEAD
-    FOODCRISIS
-=======
     NGO Donate
->>>>>>> f8002d987410d356d9cb4a765127d81e37de7d5f
   </a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span className="navbar-toggler-icon"></span>
