@@ -11,7 +11,7 @@ import PlacesAutocomplete, {
     getLatLng
   } from "react-places-autocomplete";
   
-class Registerngo extends Component {
+class RegisterNgo extends Component {
     state={
         loading:false,
         formSuccess:false,
@@ -373,5 +373,5 @@ onrchange=(e)=>{
 }
 
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyDW8A7lBPoXOo-h07Q0pFuPanNmcznAd5Y"
+    apiKey: ""
   })(connect()(RegisterNgo));

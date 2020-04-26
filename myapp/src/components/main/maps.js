@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Button, Container, Col, Row } from 'react-bootstrap';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {Map, InfoWindow, Marker,Circle, GoogleApiWrapper} from 'google-maps-react';
 import PlacesAutocomplete, {
     geocodeByAddress,
     getLatLng
@@ -27,14 +27,28 @@ export class Location extends Component {
         }).catch(err=>{
             console.log(err)
         })
+        for(var i=0;i<this.state.locations.length;i++){
+       var dist= new this.props.google.maps.geometry.computeDistanceBetween(this.state.locations[i].address,{lat:this.props.user.userData.address.lat,lng:this.props.user.userData.address.lng})
+       console.log(dist)
+       console.log(this.props)  
+       if(dist<1000){
+           var locationsmod=this.state.locationsmod
+          var locationsmod= locationsmod.concat(this.state.locations[i])
+          this.setState({
+              locationsmod:locationsmod
+          })
+       }
     }
+    
+}
     setAddress=(val)=>{
         this.setState({address:val});
     }
     setCoordinates=(coord)=>{
         this.setState({coordinates:coord})
     }
-
+       coords = { lat: this.props.user.userData.address.lat, lng: this.props.user.userData.address.lng };
+   
     handleSelect = async value => {
         const results = await geocodeByAddress(value);
         const latLng = await getLatLng(results[0]);
@@ -62,7 +76,7 @@ export class Location extends Component {
                    
                             {
                                 this.state.locations?
-                                this.state.locations.map((e,i)=>(
+                                this.state.locationsmod.map((e,i)=>(
                                     
                     <Marker onClick={this.onMarkerClick}
                     name={'Current location'}
@@ -76,6 +90,18 @@ export class Location extends Component {
                         <h1>{this.state.selectedPlace.name}</h1>
                         </div>
                     </InfoWindow> */}
+                    <Circle
+        radius={1200}
+        center={this.coords}
+        onMouseover={() => console.log('mouseover')}
+        onClick={() => console.log('click')}
+        onMouseout={() => console.log('mouseout')}
+        strokeColor='transparent'
+        strokeOpacity={0}
+        strokeWeight={5}
+        fillColor='#FF0000'
+        fillOpacity={0.2}
+      />
                     </Map>
 
                     </Col>
