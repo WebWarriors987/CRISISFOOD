@@ -317,5 +317,5 @@ onMarkerClick=(e)=>{
 }
 
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyD-b3ah_EeCvQGjkK3uGKYEDakZhYzDUMM"
+    apiKey: "AIzaSyCmI2jXpgwwqUU_u3Z-XUcrHBK_TdC1yOc"
   })(connect()(RegisterNgo));

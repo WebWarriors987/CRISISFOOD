@@ -6,6 +6,8 @@ import {connect} from 'react-redux'
 import {registeruser} from '../actions/memberactions'
 import { Button, Container, Col, Row, Form } from 'react-bootstrap';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+
+import axios from 'axios'
 import './register.css'
 import PlacesAutocomplete, {
     geocodeByAddress,
@@ -29,21 +31,6 @@ class Register extends Component {
             config:{
                 name:'name',
                 placeholder:'Enter your name here',
-                type:'text'
-            },
-            validation:{
-                required:true
-            },
-            valid:false,
-            validationMessage:'',
-            label:true
-        },
-        ngo_name: {
-            element:'input',
-            value:'',
-            config:{
-                name:'NGO_name',
-                placeholder:'Enter your NGO name here',
                 type:'text'
             },
             validation:{
@@ -184,6 +171,14 @@ handleSelect = async value => {
     const latLng = await getLatLng(results[0]);
     this.setAddress(value);
     this.setCoordinates(latLng);
+    // this.setAddress(value);
+    // axios.get(`https://atlas.mapmyindia.com/api/places/geocode??address=237 Okhla industrial estate phase 3 new delhi, delhi 110020`).then(response=>{
+      
+    //  this.setCoordinates(response);
+ 
+    //     }).catch(e=>{
+    //         console.log(e)
+    //     })
   };
 onMarkerClick=(e)=>{
     console.log(e)
@@ -375,5 +370,5 @@ render() {
 }
 
 export default GoogleApiWrapper({
-    apiKey:"AIzaSyD-b3ah_EeCvQGjkK3uGKYEDakZhYzDUMM"
+    apiKey:"AIzaSyCmI2jXpgwwqUU_u3Z-XUcrHBK_TdC1yOc"
   })(connect()(Register));
