@@ -1,11 +1,14 @@
 
 .containers {
-    max-width: 650px;
-    width: 100%;
+    max-width: 600px;
+    width: 60%;
+    
     box-shadow:0 3px 5px rgb(19, 255, 255);
-    margin: 0 auto;
+    margin: 20px auto;
     position: relative;
+    padding:30px;
   }
+
 #email {
     font-size: 20px;
     font-weight: 200;

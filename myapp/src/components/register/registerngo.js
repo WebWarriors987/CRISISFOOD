@@ -187,7 +187,7 @@ onMarkerClick=(e)=>{
 
                 <div className="reg_row_img">
                         <div className="reg_col">
-                        <img className="reg_img"  alt="EduStream"/>
+                        <p>NGO_Donate</p>
                         </div>
                          
                 </div>

@@ -230,7 +230,7 @@ render() {
 
                 <div className="reg_row_img">
                         <div className="reg_col">
-                        <img className="reg_img"  alt="EduStream"/>
+                        <p>NGO_Donate</p>
                         </div>
                          
                 </div>
@@ -272,9 +272,9 @@ render() {
                 </div>   
 
                 
-                    <Row>
-                       <Col>
-
+                    <Row className="reg_row">
+                       <Col className="reg_col">
+                        <p style={{fontSize:"20px"}}>Enter Your Address</p>
                        <PlacesAutocomplete
                             value={this.state.address}
                             onChange={this.setAddress}
