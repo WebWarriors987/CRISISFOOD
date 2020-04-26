@@ -4,6 +4,7 @@ import FormFields from '../utils/formfields';
 import {update,validform, generatedata} from '../utils/formtions'
 import {connect} from 'react-redux'
 import {loginuser} from '../actions/memberactions'
+import './register.css'
 
 class Login extends Component {
     state={

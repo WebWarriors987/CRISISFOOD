@@ -5,6 +5,7 @@ import {update,validform, generatedata} from '../utils/formtions'
 import {connect} from 'react-redux'
 import {registeruser} from '../actions/memberactions'
 import { Button, Container, Col, Row } from 'react-bootstrap';
+import './register.css'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import PlacesAutocomplete, {
     geocodeByAddress,

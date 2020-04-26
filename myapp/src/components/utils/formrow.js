@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../register/register.css'
 const FormRow = (props) => {
     return (
         <div className="formrow" key={props.j}>

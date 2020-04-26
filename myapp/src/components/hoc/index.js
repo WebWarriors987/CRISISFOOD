@@ -5,11 +5,9 @@ const Layout = (props) => {
     return (
         <div>
             <Header />
-                
-            
-             {props.children}
-            
-    
+            <div className="page_container">
+                    {props.children}
+            </div>
         </div>
     );
 };

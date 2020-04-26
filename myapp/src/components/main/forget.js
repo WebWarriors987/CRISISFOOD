@@ -3,6 +3,7 @@ import FormFields from '../utils/formfields';
 import {update,validform, generatedata} from '../utils/formtions'
 import {connect} from 'react-redux'
 import {forget} from '../actions/memberactions'
+import '../register/register.css'
 
 class Forget extends Component {
     state={

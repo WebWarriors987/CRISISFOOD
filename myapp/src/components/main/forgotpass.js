@@ -5,7 +5,7 @@ import {update,validform, generatedata} from '../utils/formtions'
 import {connect} from 'react-redux'
 import {forgetpass} from '../actions/memberactions'
 import queryString from 'query-string';
-
+import '../register/register.css'
 
 
 class Forgot extends Component {
