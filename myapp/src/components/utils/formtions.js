@@ -35,7 +35,6 @@ if(element.blur){
     newelement.validationMessage=validdata[1]
 }
 }
-
 newformdata[element.id]=newelement
 return newformdata
 };

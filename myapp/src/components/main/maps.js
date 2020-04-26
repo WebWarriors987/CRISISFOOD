@@ -137,5 +137,5 @@ const mapStateToProps=(state)=>{
 }
 
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyCbnWauuCBARCaUHizGP6eK3vrm9_N4jlA"
+    apiKey: "AIzaSyD-b3ah_EeCvQGjkK3uGKYEDakZhYzDUMM"
   })(connect(mapStateToProps)(Location))

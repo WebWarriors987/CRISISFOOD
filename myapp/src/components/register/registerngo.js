@@ -70,10 +70,10 @@ class RegisterNgo extends Component {
             label:true
         },
         additional: {
-            element:'textarea',
+            element:'input',
             value:'',
             config:{
-                name:'',
+                name:'ADDITIONAL',
                 placeholder:'Enter your additional information here',
                 type:'text'
             },
@@ -119,7 +119,7 @@ console.log(data)
 console.log(isformvalid)
 if(isformvalid){
     console.log("lll")
-    this.props.dispatch(registergo(data,this.state.coordinates)).then((response)=>{
+    this.props.dispatch(registerngo(data,this.state.coordinates)).then((response)=>{
         
         if(response.payload.success){
          console.log('hurray')
@@ -317,5 +317,5 @@ onMarkerClick=(e)=>{
 }
 
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyCbnWauuCBARCaUHizGP6eK3vrm9_N4jlA"
+    apiKey: "AIzaSyD-b3ah_EeCvQGjkK3uGKYEDakZhYzDUMM"
   })(connect()(RegisterNgo));
