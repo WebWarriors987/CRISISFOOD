@@ -7,13 +7,14 @@ import PlacesAutocomplete, {
   } from "react-places-autocomplete";
   
 
-export class Maps extends Component {
+export class Location extends Component {
     state={
         address:"",
         coordinates:{
             lat:null,
             lng:null
         },
+        location:""
     }
     componentDidMount=()=>{
         this.props.dispatch(alllist()).then(res=>{
@@ -45,13 +46,15 @@ export class Maps extends Component {
             width: '90%',
             height: '100%'
           }
-        let  map;
-        if(this.state.coordinates.lat){
-            map=(
-                <Map style={style}
+        return (
+            <Fragment>
+                <Container>
+                    <Row style={{height:"300px"}}>
+                    <Col style={{borderRight:"1px solid black"}} >
+                    <Map style={style}
           initialCenter={{
-            lat: this.state.coordinates.lat,
-            lng:  this.state.coordinates.lng
+            lat: 22.445237,
+            lng:  88.416412
           }} google={this.props.google} zoom={14}>
                    
                             {
@@ -65,21 +68,13 @@ export class Maps extends Component {
                                     )):null
                             }
 
-                    <InfoWindow onClose={this.onInfoWindowClose}>
+                    {/* <InfoWindow onClose={this.onInfoWindowClose}>
                         <div>
                         <h1>{this.state.selectedPlace.name}</h1>
                         </div>
-                    </InfoWindow>
+                    </InfoWindow> */}
                     </Map>
-            )
-        }
-        return (
-            <Fragment>
-                <Container>
-                    <Row style={{height:"300px"}}>
-                    <Col style={{borderRight:"1px solid black"}} >
-                    
-                        {map}
+
                     </Col>
                     
                     </Row>
@@ -94,10 +89,5 @@ export class Maps extends Component {
 }
 
 export default GoogleApiWrapper({
-<<<<<<< HEAD
     apiKey: "AIzaSyDW8A7lBPoXOo-h07Q0pFuPanNmcznAd5Y"
   })(Location)
-=======
-    apiKey: ""
-  })(Maps)
->>>>>>> e9b9f9c96c9f503efe9674d485cc7c7c6284b752
