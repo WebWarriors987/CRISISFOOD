@@ -203,7 +203,7 @@ onrchange=(e)=>{
 render() {
     console.log("Hieeeeeeee",this.state.value)
     let ngoDetails;
-    if(this.state.value==1){
+    if(this.state.value===1){
         ngoDetails=(
         <div className="reg_row ">
         <div className="reg_col">
@@ -373,5 +373,5 @@ render() {
 }
 
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyDW8A7lBPoXOo-h07Q0pFuPanNmcznAd5Y"
+    apiKey: ""
   })(connect()(Register));

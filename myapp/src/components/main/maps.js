@@ -5,6 +5,8 @@ import PlacesAutocomplete, {
     geocodeByAddress,
     getLatLng
   } from "react-places-autocomplete";
+import { connect } from 'react-redux';
+import { alllist } from '../actions/recordactions';
   
 
 export class Location extends Component {
@@ -17,7 +19,8 @@ export class Location extends Component {
         location:""
     }
     componentDidMount=()=>{
-        this.props.dispatch(alllist()).then(res=>{
+
+        this.props.list().then(res=>{
             this.setState({
               locations:res  
             })
@@ -88,6 +91,18 @@ export class Location extends Component {
     }
 }
 
+const mapStateToProps=state=>{
+    return{
+        all:state.record.all
+    }
+}
+
+const mapDispatchToProps=dispatch=>{
+    return {
+        list:()=>{dispatch(alllist())}
+    }
+}
+
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyDW8A7lBPoXOo-h07Q0pFuPanNmcznAd5Y"
-  })(Location)
+    apiKey: ""
+  })(connect(mapStateToProps,mapDispatchToProps)(Location))
