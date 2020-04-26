@@ -47,7 +47,7 @@ export class Location extends Component {
     setCoordinates=(coord)=>{
         this.setState({coordinates:coord})
     }
-       coords = { lat: this.props.user.userData.address.lat, lng: this.props.user.userData.address.lng };
+    coords = { lat: this.props.user.userData.address.lat, lng: this.props.user.userData.address.lng };
    
     handleSelect = async value => {
         const results = await geocodeByAddress(value);
@@ -119,7 +119,8 @@ export class Location extends Component {
 
 const mapStateToProps=state=>{
     return{
-        all:state.record.all
+        all:state.record.all,
+        user:state.member
     }
 }
 
