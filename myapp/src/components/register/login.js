@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import FormFields from '../utils/formfields';
 import {update,validform, generatedata} from '../utils/formtions'
+import "./register.css";
+
 import {connect} from 'react-redux'
 import {loginuser} from '../actions/memberactions'
 import './register.css'

@@ -1,32 +1,191 @@
 
-/*=============================
-         REGISTER LOGIN
-===============================*/
-
-.register_login_container {
-    display: flex;
-    border: 1px solid #999592;
-    border-top: 5px solid #999592;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 80px 0px 110px 0px;
-    padding: 30px;
-    min-height: 430px;
-}
-
-.register_login_container .left,
-.register_login_container .right {
-    flex:1
-}
-
-.register_login_container h2 {
-    margin: 20px 0px;
-    text-transform: uppercase;
-    color: #686868;
-}
-
-.register_login_container p{
-    font-weight: 300;
-    font-size: 16px;
-    width: 90%;
-}
+.containers {
+    max-width: 650px;
+    width: 100%;
+    
+    margin: 0 auto;
+    position: relative;
+  }
+#email {
+    font-size: 20px;
+    font-weight: 200;
+    margin-bottom:0px;
+  }
+  #contact h3 {
+    display: block;
+    
+    font-weight: 200;
+    margin-bottom: 5px;
+    text-align: center;
+      
+  }
+  #image{
+    position:absolute;
+    
+  }.reg_row{
+    display:flex;
+    flex-direction: row;
+    width:80%;
+    justify-content: stretch;
+  }
+  
+  
+  .reg_col{
+    margin:0 20px;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+  
+  }
+  
+  @media(max-width:600px){
+    .reg_row{
+      display:flex;
+      flex-direction: column;
+      width:80%;
+      align-items: center;
+    }
+    .reg_col{
+      margin:20px 0;
+      display:flex;
+      flex-direction: row;
+      justify-content: stretch;
+    
+    }
+    
+  }
+  #contact h4 {
+    margin: -10px 0 50px;
+    display: block;
+    font-size: 19px;
+    font-weight: 200;
+    text-align: center;
+  }
+  
+  fieldset {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 5px;
+    width: 100%;
+  }
+  
+  .reg_input,.reg_textarea{
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgb(158, 158, 158);
+    background: #FFF;
+    margin: 0 0 5px 0;
+    padding: 10px;
+    transition: all 0.5s ease;
+  }
+  
+  
+  
+  
+  #contact-submit{
+    cursor: pointer;
+    width: 100%;
+    background-color: white;
+    box-shadow:0 0 5px rgb(44, 177, 17) ;  
+    color: rgb(44, 177, 17);
+    margin: 25px 0 25px;
+    padding: 10px;
+    font-size: 15px;
+    transition: all 0.5s ease;
+  }
+  
+  
+  #contact-submit-reset{
+    cursor: pointer;
+    width: 100%;
+    background-color: white;
+    box-shadow:0 0 5px rgb(15, 115, 173) ;  
+    color: rgb(15, 115, 173);
+    margin: 25px 0 25px;
+    padding: 10px;
+    font-size: 15px;
+    transition: all 0.5s ease;
+  
+  }
+  #contact-submit-danger{
+    cursor: pointer;
+    width: 100%;
+    background-color: white;
+    box-shadow:0 0 5px rgb(252, 15, 15) ;  
+    color: rgb(252, 15, 15);
+    margin: 25px 0 25px;
+    padding:10px;
+    font-size: 15px;
+    transition: all 0.5s ease;
+  
+  }
+  
+  #contact-submit-danger a{
+    color: rgb(252, 15, 15);
+  }
+  #contact-submit-danger a:hover{
+    color: white;
+  }
+  
+  #contact-submit-reset:hover{
+    cursor: pointer;
+    box-shadow:none ;  
+    background-color: rgb(15, 115, 173);
+    color: white;
+  
+  }
+  #contact-submit-danger:hover{
+    cursor: pointer;
+    box-shadow:none ;  
+    background-color: rgb(252, 15, 15);
+    color: white;
+  
+  }
+  #contact-submit:hover{
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow:none ;  
+    background-color: rgb(44, 177, 17);
+    color: white;
+  }
+  
+  
+  #contact input:focus,
+  #contact textarea:focus {
+    outline: 0;
+    box-shadow: 0 1px 3px rgb(14, 14, 14);
+    border-bottom:1px solid rgb(22, 22, 22);
+  }
+  @media(max-width:767px)
+  {
+    #contact{
+      width:auto;
+      margin-right:100px;
+    }
+      #image{
+          height:30px;
+          width:30px;
+          
+      }
+      #forgot{
+          font-weight: 60;
+          font-size: 15px;
+      }
+      #forget{
+          font-weight: 60;
+          font-size: 15px;
+      }
+  }
+  @media(min-width:768px){
+      #image{
+          height:100px;
+          width:100px;
+  
+  }
+  }
+  
+  
+  

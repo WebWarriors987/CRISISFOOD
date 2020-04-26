@@ -6,7 +6,8 @@ import PlacesAutocomplete, {
     geocodeByAddress,
     getLatLng
   } from "react-places-autocomplete";
-import {alllist} from '../actions/recordactions'
+import { alllist } from '../actions/recordactions';
+  
 
 export class Location extends Component {
     state={
@@ -18,7 +19,8 @@ export class Location extends Component {
         location:""
     }
     componentDidMount=()=>{
-        this.props.dispatch(alllist()).then(res=>{
+
+        this.props.list().then(res=>{
             this.setState({
               locations:res  
             })
@@ -26,22 +28,7 @@ export class Location extends Component {
             console.log(err)
         })
         for(var i=0;i<this.state.locations.length;i++){
-            var R = 6371e3; // metres
-            var lat1=this.props.user.userData.address.lat;
-            var lon1=this.props.user.userData.address.lng;
-            var lon2=this.state.locations[i].address.lng;
-            var lat2=this.state.locations[i].address.lat;
-            var φ1 = lat1.toRadians();
-            var φ2 = lat2.toRadians();
-            var Δφ = (lat2-lat1).toRadians();
-            var Δλ = (lon2-lon1).toRadians();
-            
-            var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-                    Math.cos(φ1) * Math.cos(φ2) *
-                    Math.sin(Δλ/2) * Math.sin(Δλ/2);
-            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-            
-            var dist = R * c
+       var dist= new this.props.google.maps.geometry.computeDistanceBetween(this.state.locations[i].address,{lat:this.props.user.userData.address.lat,lng:this.props.user.userData.address.lng})
        console.log(dist)
        console.log(this.props)  
        if(dist<1000){
@@ -60,7 +47,7 @@ export class Location extends Component {
     setCoordinates=(coord)=>{
         this.setState({coordinates:coord})
     }
-       coords = { lat: this.props.user.userData.address.lat, lng: this.props.user.userData.address.lng };
+    coords = { lat: this.props.user.userData.address.lat, lng: this.props.user.userData.address.lng };
    
     handleSelect = async value => {
         const results = await geocodeByAddress(value);
@@ -130,10 +117,17 @@ export class Location extends Component {
     }
 }
 
-const mapStateToProps=(state)=>{   
+const mapStateToProps=state=>{
     return{
-      list:state.record
-          }
+        all:state.record.all,
+        user:state.member
+    }
+}
+
+const mapDispatchToProps=dispatch=>{
+    return {
+        list:()=>{dispatch(alllist())}
+    }
 }
 
 export default GoogleApiWrapper({
