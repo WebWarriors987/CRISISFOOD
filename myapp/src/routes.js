@@ -29,7 +29,7 @@ const Routes = () => {
             <Route exact component={Auth(Forgot,null)} path="/resetpass"/>
             
             <Route exact component={Auth(Forget,null)} path="/forget"/>
-            <Route exact component={Auth(Maps,null)} path="/maps"/>
+            <Route exact component={Auth(Maps,true)} path="/maps"/>
             
             <Route component={Error} /> 
 

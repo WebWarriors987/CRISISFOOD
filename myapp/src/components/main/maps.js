@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import {connect} from 'react-redux'
 import { Button, Container, Col, Row } from 'react-bootstrap';
 import {Map, InfoWindow, Marker,Circle, GoogleApiWrapper} from 'google-maps-react';
 import PlacesAutocomplete, {
@@ -129,6 +130,12 @@ export class Location extends Component {
     }
 }
 
+const mapStateToProps=(state)=>{   
+    return{
+      list:state.record
+          }
+}
+
 export default GoogleApiWrapper({
-    apiKey: ""
-  })(Location)
+    apiKey: "AIzaSyCbnWauuCBARCaUHizGP6eK3vrm9_N4jlA"
+  })(connect(mapStateToProps)(Location))
