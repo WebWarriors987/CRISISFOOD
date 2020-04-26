@@ -21,7 +21,7 @@ class Header extends Component {
                
 <nav className="navbar sticky-top navbar-expand-md navbar-light" >
   <a className="navbar-brand" href="#">
-    Bootstrap
+    FOODCRISIS
   </a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span className="navbar-toggler-icon"></span>
@@ -40,7 +40,14 @@ class Header extends Component {
     </ul>
     <ul className="navbar-nav ">
         <li className="nav-item"><a className="nav-link" href="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li className="nav-item"><a className="nav-link" href="/login"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+        {this.props.user.userData?
+                  
+                  !this.props.user.userData.isAuth?
+                  <li className="nav-item"><a className="nav-link" href="/login"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+                  :
+                  <li className="nav-item"><a className="nav-link" href="/" onClick={(event)=>this.logoutuser()}><span className="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                  :null
+  }
       </ul>
   </div>  
 </nav>

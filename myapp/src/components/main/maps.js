@@ -16,29 +16,32 @@ export class Location extends Component {
             lat:null,
             lng:null
         },
-        location:""
+        locations:""
     }
     componentDidMount=()=>{
 
-        this.props.list().then(res=>{
+        this.props.dispatch(alllist()).then(res=>{
             this.setState({
               locations:res  
             })
+            for(var i=0;i<this.state.locations.length;i++){
+                var dist= new this.props.google.maps.geometry.computeDistanceBetween(this.state.locations[i].address,{lat:this.props.user.userData.address.lat,lng:this.props.user.userData.address.lng})
+                console.log(dist)
+                console.log(this.props)  
+                if(dist<1000){
+                    var locationsmod=this.state.locationsmod
+                   var locationsmod= locationsmod.concat(this.state.locations[i])
+                   this.setState({
+                       locationsmod:locationsmod
+                   })
+                }
+             }
+            console.log(this.state.locations)
         }).catch(err=>{
             console.log(err)
         })
-        for(var i=0;i<this.state.locations.length;i++){
-       var dist= new this.props.google.maps.geometry.computeDistanceBetween(this.state.locations[i].address,{lat:this.props.user.userData.address.lat,lng:this.props.user.userData.address.lng})
-       console.log(dist)
-       console.log(this.props)  
-       if(dist<1000){
-           var locationsmod=this.state.locationsmod
-          var locationsmod= locationsmod.concat(this.state.locations[i])
-          this.setState({
-              locationsmod:locationsmod
-          })
-       }
-    }
+
+        
     
 }
     setAddress=(val)=>{
@@ -75,7 +78,7 @@ export class Location extends Component {
           }} google={this.props.google} zoom={14}>
                    
                             {
-                                this.state.locations?
+                                this.state.locationsmod?
                                 this.state.locationsmod.map((e,i)=>(
                                     
                     <Marker onClick={this.onMarkerClick}

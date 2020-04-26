@@ -511,8 +511,7 @@ app.get('/api/members/auth',auth,(req,res)=>{
         id:req.user.id,
         lastname: req.user.lastname,
         role: req.user.role,
-        cart: req.user.cart,
-        history: req.user.history
+        address:req.user.address
     })
 })
 
