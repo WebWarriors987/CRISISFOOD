@@ -71,32 +71,6 @@ ngoSchema.pre('save',function(next){
     }
 })
 
-ngoSchema.methods.comparepassword=function(candidatepassword,cb){
-    bcrypt.compare(candidatepassword,this.password,function(err,isMatch){
-        if(err) return cb(err)
-        cb(null,isMatch)
-    })
-}
-
-ngoSchema.methods.generateToken=function(cb){
-    var user=this;
-    var token=jwt.sign(user._id.toHexString(),process.env.PASS)
-    user.token=token
-    user.save(function(err,user){
-        if(err) return cb(err,null)
-        cb(null,user)
-    })
-}
-
-ngoSchema.statics.findByToken=function(token,cb){
-    var user=this;
-    jwt.verify(token,process.env.PASS,function(err,decode){
-      user.findOne({"_id":decode,"token":token},(err,user)=>{
-          if(err) return cb(err);
-          return cb(null,user);
-      })
-    })
-}
 
 const NGO =mongoose.model('NGO',ngoSchema)
 

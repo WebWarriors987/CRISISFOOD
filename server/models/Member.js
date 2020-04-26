@@ -44,8 +44,7 @@ const memberSchema=mongoose.Schema({
     },
     address:{
         type:Object,
-        default:{}
-        // required:true
+        required:true
     }
    
 },{timestamps:true})
