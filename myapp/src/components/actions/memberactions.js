@@ -16,6 +16,7 @@ export function registeruser(datar,add){
     const data={
         ...datar,
         address:add
+            
     }
 
 

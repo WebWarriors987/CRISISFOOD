@@ -37,6 +37,21 @@ class Register extends Component {
             validationMessage:'',
             label:true
         },
+        ngo_name: {
+            element:'input',
+            value:'',
+            config:{
+                name:'NGO_name',
+                placeholder:'Enter your NGO name here',
+                type:'text'
+            },
+            validation:{
+                required:true
+            },
+            valid:false,
+            validationMessage:'',
+            label:true
+        },
         lastname: {
             element:'input',
             value:'',
@@ -180,16 +195,27 @@ onrchange=(e)=>{
     newformdata['role'].value=e.target.value
     this.setState({
         formdata:newformdata,
-        value:e.target.value
+        value:parseInt(e.target.value)
     })
     
-    this.setState({
-      value:1
-    })
-    console.log(this.state)
+    
 }
-    render() {
-        return (
+render() {
+    console.log("Hieeeeeeee",this.state.value)
+    let ngoDetails;
+    if(this.state.value==1){
+        ngoDetails=(
+        <div className="reg_row ">
+        <div className="reg_col">
+                    <FormFields
+                    formdata={this.state.formdata.ngo_name}
+                    id={'name'}
+                    change={(event)=>{this.updateform(event)}}
+                   />
+        </div>
+        </div>)
+    }
+    return (
             this.state.loading?
         <center> <CircularProgress thickness={5} size={15} style={{color:'grey',marginBottom:"500px"}} />  </center>
             :
@@ -243,18 +269,18 @@ onrchange=(e)=>{
                 </div>         
                 </div>   
 
-                <Col>
+                
                     <Row>
-                        What is the location for service?
-                        <PlacesAutocomplete
+                       <Col>
+
+                       <PlacesAutocomplete
                             value={this.state.address}
                             onChange={this.setAddress}
                             onSelect={this.handleSelect}
                         >
                             {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                             <div>
-                                <p>Latitude: {this.state.coordinates.lat}</p>
-                                <p>Longitude: {this.state.coordinates.lng}</p>
+                                
 
                                 <input {...getInputProps({ placeholder: "Type address" })} />
 
@@ -276,9 +302,11 @@ onrchange=(e)=>{
                             </div>
                             )}
                         </PlacesAutocomplete>
+                       </Col>
+                        
                     </Row>
                     
-                    </Col>
+                 
                    
                 <div className="reg_row">
                 <div className="reg_col">
@@ -290,6 +318,8 @@ onrchange=(e)=>{
                 </div>
                     
                 </div>
+                {ngoDetails}
+                
 
                 <div className="row">
                    <label style={{fontFamily:'algerian'}}> ARE YOU AN ADMIN ? </label> 
@@ -301,6 +331,7 @@ onrchange=(e)=>{
                 checked={this.state.value === 1}
                 onChange={(e)=>this.onrchange(e)}/>
                 </div>
+
                 <div className="col-lg-6 col-sm-6 col-md-6 col-xs-6">
                 <label>YES</label>
                 </div>
@@ -320,7 +351,7 @@ onrchange=(e)=>{
                 </div>
                 </div>
                 </div>
- 
+                
                 <div className="reg_row_img">
                 <div className="reg_col">
                 <fieldset>
@@ -342,5 +373,5 @@ onrchange=(e)=>{
 }
 
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyDW8A7lBPoXOo-h07Q0pFuPanNmcznAd5Y"
+    apiKey: ""
   })(connect()(Register));

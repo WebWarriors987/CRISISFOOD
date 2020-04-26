@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import { Container, Row, Col,Button, Image } from 'react-bootstrap';
+import aut1 from "../../images/aut1.png";
+import aut2 from "../../images/aut2.png";
+import { Container, Row, Col,Button, Image, Jumbotron } from 'react-bootstrap';
+import "./main.css";
 class Main extends Component {
 
     state={
@@ -16,7 +19,7 @@ class Main extends Component {
             <Row >
     
               <Col className="p-0"  style={{textAlign:"center"}}>
-                <h1 className="home_head">We Bring The School Experience to Home</h1>
+                <h1 className="home_head">Do Your Deeds </h1>
                 <span className="home_sub">Never Stop learning, even at home</span>
 
                 <Row style={{marginTop:"50px"}}>
@@ -25,9 +28,7 @@ class Main extends Component {
                   
                   !this.props.user.userData.isAuth?
                  
-                   <Link  id="contact-submit" style={{fontFamily:"Times new roman",fontSize:"15px"}} to="/login">SignUp/SignIn</Link>
-                  
-                  
+                   <Link  className="contact-submit"  to="/login">SignUp/SignIn</Link>
                   :
                   null
                  :null
@@ -86,9 +87,12 @@ class Main extends Component {
             <Row xs={1} style={{marginTop:"100px",textAlign:"center"}}>
                 <p className="home_topic">How our WebSite Works:</p>
             </Row>
+            {/* <Row xs={1} style={{marginTop:"50px"}}>
             
-            <Row xs={1} style={{marginTop:"50px"}}>
-            </Row>
+              
+                <img className="img_flow" src={flow} />
+              
+            </Row> */}
             
           </Container>
 
