@@ -21,10 +21,6 @@ const ngoSchema=mongoose.Schema({
         }
 
     },
-    password:{
-        required:true,
-        type:String
-    },
     name:{
         required:true,
         type:String
@@ -32,9 +28,6 @@ const ngoSchema=mongoose.Schema({
     lastname:{
         required:true,
         type:String
-    },
-    role:{
-      type:Number
     },
     token:{
         type:String

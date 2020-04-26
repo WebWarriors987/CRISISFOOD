@@ -29,18 +29,18 @@ class Header extends Component {
   <div className="collapse navbar-collapse" id="collapsibleNavbar">
     <ul className="navbar-nav ml-auto">
       <li className="nav-item">
-        <a className="nav-link" href="#">Link</a>
+        <a className="nav-link" href="/">HOME</a>
+      </li>
+      {/* <li className="nav-item">
+        <a className="nav-link" href="">Link</a>
       </li>
       <li className="nav-item">
         <a className="nav-link" href="#">Link</a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">Link</a>
-      </li>    
+      </li>     */}
     </ul>
     <ul className="navbar-nav ">
-        <li className="nav-item"><a className="nav-link" href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li className="nav-item"><a className="nav-link" href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li className="nav-item"><a className="nav-link" href="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li className="nav-item"><a className="nav-link" href="/login"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
   </div>  
 </nav>
