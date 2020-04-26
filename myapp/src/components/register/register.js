@@ -40,21 +40,6 @@ class Register extends Component {
             validationMessage:'',
             label:true
         },
-        ngo_name: {
-            element:'input',
-            value:'',
-            config:{
-                name:'NGO_name',
-                placeholder:'Enter your NGO name here',
-                type:'text'
-            },
-            validation:{
-                required:true
-            },
-            valid:false,
-            validationMessage:'',
-            label:true
-        },
         lastname: {
             element:'input',
             value:'',
