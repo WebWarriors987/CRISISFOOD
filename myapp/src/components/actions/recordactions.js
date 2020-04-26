@@ -68,7 +68,7 @@ export function editdata(field,info){
 }
 
 
-export function allalum(){
+export function alllist(){
     const request = axios.get(`${RECORD_SERVER}/allalum`)
         .then(response => response.data);
     

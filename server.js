@@ -6,6 +6,8 @@ const formidable=require('express-formidable')
 const {auth}=require('./server/middleware/auth')
 const cloudinary=require('cloudinary')
 const {Member}=require("./server/models/Member")
+
+const {NGO}=require("./server/models/NGO")
 const jwt=require('jsonwebtoken')
 const fs = require('fs')
 
@@ -205,7 +207,7 @@ app.post('/api/members/login',(req,res)=>{
 
 app.get('/api/records/allalum',auth,(req,res)=>{
    console.log('hhhh')
-    Record
+    NGO
     .find()
     .exec((err,allalum)=>{
         if(err){

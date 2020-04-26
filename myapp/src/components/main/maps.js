@@ -13,7 +13,16 @@ export class Location extends Component {
         coordinates:{
             lat:null,
             lng:null
-        }
+        },
+    }
+    componentDidMount=()=>{
+        this.props.dispatch(alllist()).then(res=>{
+            this.setState({
+              locations:res  
+            })
+        }).catch(err=>{
+            console.log(err)
+        })
     }
     setAddress=(val)=>{
         this.setState({address:val});
@@ -46,9 +55,17 @@ export class Location extends Component {
             lat: 22.445237,
             lng:  88.416412
           }} google={this.props.google} zoom={14}>
- 
+                   
+                            {
+                                this.state.locations?
+                                this.state.locations.map((e,i)=>(
+                                    
                     <Marker onClick={this.onMarkerClick}
-                            name={'Current location'} />
+                    name={'Current location'}
+                    position={{lat: e.address.lat, lng:e.address.lng}}
+                    />
+                                    )):null
+                            }
 
                     {/* <InfoWindow onClose={this.onInfoWindowClose}>
                         <div>
@@ -57,42 +74,6 @@ export class Location extends Component {
                     </InfoWindow> */}
                     </Map>
 
-                    </Col>
-                    <Col>
-                    <Row>
-                        What is the location for service?
-                        <PlacesAutocomplete
-                            value={this.state.address}
-                            onChange={this.setAddress}
-                            onSelect={this.handleSelect}
-                        >
-                            {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                            <div>
-                                <p>Latitude: {this.state.coordinates.lat}</p>
-                                <p>Longitude: {this.state.coordinates.lng}</p>
-
-                                <input {...getInputProps({ placeholder: "Type address" })} />
-
-                                <div>
-                                {loading ? <div>...loading</div> : null}
-
-                                {suggestions.map(suggestion => {
-                                    const style = {
-                                    backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
-                                    };
-
-                                    return (
-                                    <div {...getSuggestionItemProps(suggestion, { style })}>
-                                        {suggestion.description}
-                                    </div>
-                                    );
-                                })}
-                                </div>
-                            </div>
-                            )}
-                        </PlacesAutocomplete>
-                    </Row>
-                    
                     </Col>
                     
                     </Row>
@@ -107,5 +88,5 @@ export class Location extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: ""
+    apiKey: "AIzaSyDW8A7lBPoXOo-h07Q0pFuPanNmcznAd5Y"
   })(Location)
