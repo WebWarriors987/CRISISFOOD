@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import {registeruser} from '../actions/memberactions'
 import { Button, Container, Col, Row } from 'react-bootstrap';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import './register.css'
 import PlacesAutocomplete, {
     geocodeByAddress,
     getLatLng

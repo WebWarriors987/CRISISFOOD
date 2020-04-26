@@ -6,6 +6,7 @@ import "./register.css";
 
 import {connect} from 'react-redux'
 import {loginuser} from '../actions/memberactions'
+import './register.css'
 
 class Login extends Component {
     state={

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import '../register/register.css'
 class FormFields extends Component {
     
     showError = () => {
