@@ -70,10 +70,10 @@ class RegisterNgo extends Component {
             label:true
         },
         additional: {
-            element:'textarea',
+            element:'input',
             value:'',
             config:{
-                name:'',
+                name:'ADDITIONAL',
                 placeholder:'Enter your additional information here',
                 type:'text'
             },
@@ -317,5 +317,5 @@ onMarkerClick=(e)=>{
 }
 
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyCbnWauuCBARCaUHizGP6eK3vrm9_N4jlA"
+    apiKey: "AIzaSyD-b3ah_EeCvQGjkK3uGKYEDakZhYzDUMM"
   })(connect()(RegisterNgo));
